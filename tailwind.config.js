@@ -5,6 +5,23 @@ module.exports = {
     "node_modules/flowbite-react/lib/esm/**/*.js",
   ],
   theme: {
+    colors: {
+      blue: "#3958FF",
+      darkBluish: "#171B35",
+      white: "#fff",
+      lightGray2: "#EFEFEF",
+      lightGray: "#CCC",
+      darkBlue: "#23284F",
+      darkBlue1: "#2E2633",
+      darkBlueGray: "#444869",
+      darkBlueGray1: "#3B3D53",
+      darkGray: "#3C3E56",
+      darkGray1: "#3B3C54",
+      darkGray2: "#31354C",
+      green: "#27AE60",
+      red: "#EB5757",
+      orange: "#FC8623",
+    },
     screens: {
       xs: { max: "400px" },
       sm: { max: "639px" },

@@ -19,7 +19,7 @@ export const Login = () => {
     <div className="h-[100vh] w-full flex items-center justify-center">
       {loading && (
         <div
-          className="fixed top-0 left-0 h-[100vh] w-full bg-[#fff] opacity-80 z-50 flex items-center justify-center"
+          className="fixed top-0 left-0 h-[100vh] w-full bg-white opacity-80 z-50 flex items-center justify-center"
           style={{ backgroundColor: `rgb(29, 40, 93)` }}
         >
           <div className="ring-area">
@@ -28,13 +28,13 @@ export const Login = () => {
           </div>
         </div>
       )}
-      <div className="w-[90%] max-w-[1158px] p-[30px] bg-[#23284F] rounded-[24px] grid grid-cols-[1fr_601px] gap-6 items-center border-[1px] border-[#444869] 1lg:grid-cols-1 sm:p-4">
+      <div className="w-[90%] max-w-[1158px] p-[30px] bg-darkBlue rounded-[24px] grid grid-cols-[1fr_601px] gap-6 items-center border-[1px] border-darkBlueGray 1lg:grid-cols-1 sm:p-4">
         <div className="sm:flex sm:flex-col sm:items-center">
           <img src={logo} alt="" />
-          <h1 className="text-[30px] md:text-center mt-8 font-bold text-[#EFEFEF]">
+          <h1 className="text-[30px] md:text-center mt-8 font-bold text-lightGray2">
             Welcome to Freedom X
           </h1>
-          <p className="text-[#EFEFEF] p-login sm:text-center text-[17px] mt-5 mb-8">
+          <p className="text-lightGray2 p-login sm:text-center text-[17px] mt-5 mb-8">
             We create returns for your money using Sports Betting, in a
             transparent and analytical way. This is not leasure nor gambling.
           </p>
@@ -57,7 +57,7 @@ export const Login = () => {
             </GoogleOAuthProvider>
           </div>
 
-          <button className="flex items-center gap-2 w-[215px] h-[45px] bg-[#171B35] border-[2px] border-[#3958FF] text-[#EFEFEF] justify-center rounded-full text-[17px] sm:w-full">
+          <button className="flex items-center gap-2 w-[215px] h-[45px] bg-darkBluish border-[2px] border-blue text-lightGray2 justify-center rounded-full text-[17px] sm:w-full">
             <img src={google} alt="" />
             Sign in with Google
           </button>

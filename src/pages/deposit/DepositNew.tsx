@@ -8,7 +8,7 @@ export const DepositNew = () => {
         <DepositCard logoCustom />
       </div>
       <button
-        className="text-[#fff] font-semibold text-[16px] w-[134px] h-[49px] border-[1px] border-[#3958FF] rounded-[12px] absolute bottom-5 skipbutton"
+        className="text-white font-semibold text-[16px] w-[134px] h-[49px] border-[1px] border-blue rounded-[12px] absolute bottom-5 skipbutton"
         onClick={(e) => {
           navigate("/bet");
         }}

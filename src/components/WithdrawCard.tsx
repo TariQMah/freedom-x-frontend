@@ -48,7 +48,7 @@ export const WithdrawCard = ({ setDone }: any) => {
     <div>
       {loading && (
         <div
-          className="fixed top-0 left-0 h-[100vh] w-full bg-[#fff] opacity-80 z-50 flex items-center justify-center"
+          className="fixed top-0 left-0 h-[100vh] w-full bg-white opacity-80 z-50 flex items-center justify-center"
           style={{ backgroundColor: `rgb(29, 40, 93)` }}
         >
           <div className="ring-area">
@@ -58,9 +58,9 @@ export const WithdrawCard = ({ setDone }: any) => {
         </div>
       )}
       <ToastContainer hideProgressBar={true} />
-      <div className="md:w-[90%] mx-auto  w-[534px] p-[30px] bg-[#23284F] rounded-[24px] border-[1px] border-[#444869] sm:p-[16px] mb-5">
+      <div className="md:w-[90%] mx-auto  w-[534px] p-[30px] bg-darkBlue rounded-[24px] border-[1px] border-darkBlueGray sm:p-[16px] mb-5">
         <div className="mt-6">
-          <label htmlFor="#" className="text-[#FFFFFF] text-[17px] mb-2 block">
+          <label htmlFor="#" className="text-white text-[17px] mb-2 block">
             Select Account
           </label>
 
@@ -76,18 +76,18 @@ export const WithdrawCard = ({ setDone }: any) => {
         </div>
 
         <div className="mt-6 relative">
-          <label htmlFor="#" className="text-[#FFFFFF] text-[17px] mb-2 block">
+          <label htmlFor="#" className="text-white text-[17px] mb-2 block">
             Address
           </label>
 
           <div
-            className={`flex bg-[#171B35] w-full rounded-[12px] border-[1px] border-[#3B3D53] h-[50px] items-center px-3 cursor-pointer ${
+            className={`flex bg-darkBluish w-full rounded-[12px] border-[1px] border-darkBlueGray1 h-[50px] items-center px-3 cursor-pointer ${
               active.length > 1000 && "rounded-bl-none rounded-br-none"
             }`}
           >
             <input
               type="text"
-              className="bg-[transparent] text-[#CCCCCC] text-[16px] flex-1 w-full outline-none border-0"
+              className="bg-[transparent] text-lightGray text-[16px] flex-1 w-full outline-none border-0"
               placeholder="Enter address"
               value={active}
               onChange={(e) => {
@@ -107,7 +107,7 @@ export const WithdrawCard = ({ setDone }: any) => {
           </div>
           {/* 
           {active.length > 0 && (
-            <ul className="bg-[#23284F] px-[20px] border-[1px] border-[#3958FF] rounded-bl-[8px] rounded-br-[8px] absolute w-full z-20">
+            <ul className="bg-darkBlue px-[20px] border-[1px] border-blue rounded-bl-[8px] rounded-br-[8px] absolute w-full z-20">
               {[
                 "0xkshjdahfl95rfgb..7yvbnm2345678",
                 "0xkshjdahfl95rfgb..7yvbnm2345678",
@@ -115,12 +115,12 @@ export const WithdrawCard = ({ setDone }: any) => {
                 "0xkshjdahfl95rfgb..7yvbnm2345678",
               ].map((EachAddress, key) => (
                 <li
-                  className={`text-[16px] font-bold text-[#EFEFEF] h-[56px] border-b-[1px] border-b-[#444869] cursor-pointer flex flex-col justify-center`}
+                  className={`text-[16px] font-bold text-lightGray2 h-[56px] border-b-[1px] border-b-darkBlueGray cursor-pointer flex flex-col justify-center`}
                 >
-                  <h3 className="text-[#CCCCCC] text-[12px] font-bold">
+                  <h3 className="text-lightGray text-[12px] font-bold">
                     Address Name
                   </h3>
-                  <p className="text-[#fff] text-[12px] font-bold">
+                  <p className="text-white text-[12px] font-bold">
                     {EachAddress}
                   </p>
                 </li>
@@ -130,7 +130,7 @@ export const WithdrawCard = ({ setDone }: any) => {
         </div>
 
         <div className="mt-6">
-          <label htmlFor="#" className="text-[#FFFFFF] text-[17px] mb-2 block">
+          <label htmlFor="#" className="text-white text-[17px] mb-2 block">
             Network
           </label>
 
@@ -141,12 +141,12 @@ export const WithdrawCard = ({ setDone }: any) => {
           />
         </div>
         <div className="mt-6">
-          <div className=" bg-[#171B35] w-full rounded-[12px] border-[1px] border-[#3B3D53] h-[81px]  px-3 cursor-pointer flex flex-col justify-center">
-            <p className="text-[#CCCCCC] text-[16px] ">Amount</p>
+          <div className=" bg-darkBluish w-full rounded-[12px] border-[1px] border-darkBlueGray1 h-[81px]  px-3 cursor-pointer flex flex-col justify-center">
+            <p className="text-lightGray text-[16px] ">Amount</p>
             <div className="flex items-center">
               <input
                 type="number"
-                className="bg-[transparent] text-[#CCCCCC] text-[16px] flex-1 w-full outline-none border-0 placeholder:text-[#EFEFEF]"
+                className="bg-[transparent] text-lightGray text-[16px] flex-1 w-full outline-none border-0 placeholder:text-lightGray2"
                 placeholder={`${globalDataAccount?.balance} ${globalDataAccount?.symbol}`}
                 value={Amount}
                 onChange={(e) => {
@@ -154,36 +154,43 @@ export const WithdrawCard = ({ setDone }: any) => {
                 }}
               />
               <button
-                className="text-[#EFEFEF] text-[15px] border-[1px] border-[#3958FF]  h-[31px] w-[60px] rounded"
+                className="text-lightGray2 text-[15px] border-[1px] border-blue  h-[31px] w-[60px] rounded"
                 onClick={(e) => {
-                  setAmount(Number(globalDataAccount?.balance).toFixed(globalDataAccount?.symbol == "BTC" ? 8 : 2));
+                  setAmount(
+                    Number(globalDataAccount?.balance).toFixed(
+                      globalDataAccount?.symbol == "BTC" ? 8 : 2
+                    )
+                  );
                 }}
               >
                 Max
               </button>
             </div>
           </div>
-          <p className="text-[#EFEFEF] text-[12px] mt-2">
-            Available {Number(globalDataAccount?.balance).toFixed(globalDataAccount?.symbol == "BTC" ? 8 : 2)}{" "}
+          <p className="text-lightGray2 text-[12px] mt-2">
+            Available{" "}
+            {Number(globalDataAccount?.balance).toFixed(
+              globalDataAccount?.symbol == "BTC" ? 8 : 2
+            )}{" "}
             {globalDataAccount?.symbol}
           </p>
         </div>
         <div className="mt-4 mb-6">
-          <div className="flex bg-[#171B35] w-full rounded-[12px] border-[1px] border-[#3B3D53] h-[50px] items-center px-3 cursor-pointer">
+          <div className="flex bg-darkBluish w-full rounded-[12px] border-[1px] border-darkBlueGray1 h-[50px] items-center px-3 cursor-pointer">
             <input
               type="password"
-              className="bg-[transparent] text-[#CCCCCC] text-[16px] flex-1 w-full outline-none border-0"
+              className="bg-[transparent] text-lightGray text-[16px] flex-1 w-full outline-none border-0"
               readOnly
               placeholder="Fee"
             />
-            <p className="text-[#EFEFEF] text-[18px] font-semibold">
+            <p className="text-lightGray2 text-[18px] font-semibold">
               {currentFee} {globalDataAccount?.symbol}
             </p>
           </div>
         </div>
 
         <button
-          className="text-[#FFFFFF] tect-[16px] w-full h-[49px] bg-[#3958FF]  rounded-[12px]"
+          className="text-white tect-[16px] w-full h-[49px] bg-blue  rounded-[12px]"
           onClick={startWithdrawProcess}
         >
           Submit

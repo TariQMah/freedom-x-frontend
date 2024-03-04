@@ -34,7 +34,7 @@ export const Analytics = () => {
     <div className="w-full">
       {loading && (
         <div
-          className="fixed top-0 left-0 h-[100vh] w-full bg-[#fff] opacity-80 z-50 flex items-center justify-center"
+          className="fixed top-0 left-0 h-[100vh] w-full bg-white opacity-80 z-50 flex items-center justify-center"
           style={{ backgroundColor: `rgb(29, 40, 93)` }}
         >
           <div className="ring-area">
@@ -47,9 +47,9 @@ export const Analytics = () => {
       <Header active={2} page="Analytics" />
 
       <div className="1lg:w-[90%] md:flex md:gap-[30px] md:flex-col-reverse  w-[1140px] mx-auto  mt-[36px] mb-[60px]">
-        <div className="p-[30px] rounded-[24px] bg-[#171B35] border-[1px] border-[#31354C] sm:p-4 relative">
+        <div className="p-[30px] rounded-[24px] bg-darkBluish border-[1px] border-darkGray2 sm:p-4 relative">
           <div className="flex items-center justify-between">
-            <h1 className="text-[#FFFFFF] md:text-[18px] font-bold text-[25px]">
+            <h1 className="text-white md:text-[18px] font-bold text-[25px]">
               Overall Performance
             </h1>
             <MonthDropdown setupdateval={setperformancestat} />
@@ -101,9 +101,9 @@ export const Analytics = () => {
             />
           </div>
         </div>
-        <div className="p-[30px] mt-[30px] md:mt-0 rounded-[24px] bg-[#171B35] border-[1px] border-[#31354C] sm:p-4 relative">
+        <div className="p-[30px] mt-[30px] md:mt-0 rounded-[24px] bg-darkBluish border-[1px] border-darkGray2 sm:p-4 relative">
           <div className="flex items-center justify-between">
-            <h1 className="text-[#FFFFFF] md:text-[18px] font-bold text-[25px]">
+            <h1 className="text-white md:text-[18px] font-bold text-[25px]">
               Account stats
             </h1>
             <MonthDropdown setupdateval={setaccountstat} />

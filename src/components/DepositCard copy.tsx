@@ -54,7 +54,7 @@ export const DepositCard = ({ logoCustom }: any) => {
     <div>
       {loading && (
         <div
-          className="fixed top-0 left-0 h-[100vh] w-full bg-[#fff] opacity-80 z-50 flex items-center justify-center"
+          className="fixed top-0 left-0 h-[100vh] w-full bg-white opacity-80 z-50 flex items-center justify-center"
           style={{ backgroundColor: `rgb(29, 40, 93)` }}
         >
           <div className="ring-area">
@@ -65,11 +65,11 @@ export const DepositCard = ({ logoCustom }: any) => {
       )}
 
       <ToastContainer hideProgressBar={true} />
-      <div className="md:w-[90%] mx-auto  w-[534px] p-[30px] bg-[#23284F] rounded-[24px] border-[1px] border-[#444869] sm:p-[16px]">
+      <div className="md:w-[90%] mx-auto  w-[534px] p-[30px] bg-darkBlue rounded-[24px] border-[1px] border-darkBlueGray sm:p-[16px]">
         {logoCustom && <img src={logo} alt="" className="mx-auto" />}
 
         <div className="mt-6">
-          <label htmlFor="#" className="text-[#FFFFFF] text-[17px] mb-2 block">
+          <label htmlFor="#" className="text-white text-[17px] mb-2 block">
             Select Coin
           </label>
 
@@ -85,7 +85,7 @@ export const DepositCard = ({ logoCustom }: any) => {
           />
         </div>
         <div className="mt-6">
-          <label htmlFor="#" className="text-[#FFFFFF] text-[17px] mb-2 block">
+          <label htmlFor="#" className="text-white text-[17px] mb-2 block">
             Select network
           </label>
 
@@ -100,16 +100,16 @@ export const DepositCard = ({ logoCustom }: any) => {
         </div>
         <div className="mt-6 flex items-center  gap-[13px]">
           {symbol != "EUR" && (
-            <div className="p-[6px] bg-[#fff] w-[94px] h-[94px] rounded-lg">
+            <div className="p-[6px] bg-white w-[94px] h-[94px] rounded-lg">
               <QRCode className="w-full h-full" value={address} />
             </div>
           )}
           <div className="flex-1">
-            <h1 className="text-[#FFFFFF] font-bold">
+            <h1 className="text-white font-bold">
               {symbol != "EUR" ? "Deposit Address" : "IBAN"}
             </h1>
             <div className="flex items-center justify-between mt-[14px]">
-              <p className="w-[194px] break-words text-[#FFFFFF] text-[14px] sm:w-[150px]">
+              <p className="w-[194px] break-words text-white text-[14px] sm:w-[150px]">
                 {address}
               </p>
               <img
@@ -126,17 +126,14 @@ export const DepositCard = ({ logoCustom }: any) => {
         </div>
         {symbol != "EUR" && (
           <div className="my-6">
-            <label
-              htmlFor="#"
-              className="text-[#FFFFFF] text-[17px] mb-2 block"
-            >
+            <label htmlFor="#" className="text-white text-[17px] mb-2 block">
               Transaction Proof (Transaction Hash)
             </label>
 
-            <div className="flex bg-[#171B35] w-full rounded-[12px] border-[1px] border-[#3B3D53] h-[50px] items-center px-3 cursor-pointer">
+            <div className="flex bg-darkBluish w-full rounded-[12px] border-[1px] border-darkBlueGray1 h-[50px] items-center px-3 cursor-pointer">
               <input
                 type="text"
-                className="bg-[transparent] text-[#CCCCCC] text-[16px] flex-1 w-full outline-none border-0"
+                className="bg-[transparent] text-lightGray text-[16px] flex-1 w-full outline-none border-0"
                 value={pasteValue}
                 onChange={(e) => {
                   setpasteValue(e.target.value);
@@ -157,7 +154,7 @@ export const DepositCard = ({ logoCustom }: any) => {
         )}
         {symbol != "EUR" && (
           <button
-            className="text-[#FFFFFF] tect-[16px] w-full h-[49px] bg-[#3958FF]  rounded-[12px]"
+            className="text-white tect-[16px] w-full h-[49px] bg-blue  rounded-[12px]"
             onClick={startDeposit}
           >
             Deposit

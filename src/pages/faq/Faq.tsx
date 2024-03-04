@@ -8,7 +8,7 @@ export const Faq = () => {
     <div className="w-full">
       <Header active={7} page="Faq" />
       <div className="md:w-[90%]  w-[692px] mx-auto mt-[36px]">
-        <h1 className="text-[32px] text-center font-semibold text-[#fff] mb-8">
+        <h1 className="text-[32px] text-center font-semibold text-white mb-8">
           Frequently Asked Questions
         </h1>
 

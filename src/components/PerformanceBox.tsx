@@ -79,17 +79,17 @@ export const PerformanceBox = ({
 
   return (
     <div
-      className={`px-5 relative py-3 rounded-[12px]  bg-[#23284F] border-[1px] border-[#444869] ${
+      className={`px-5 relative py-3 rounded-[12px]  bg-darkBlue border-[1px] border-darkBlueGray ${
         bar && "!pb-0"
       }`}
     >
       <div className="flex justify-between">
         <div>
-          <h1 className="text-[#CCCCCC]  relative inline-flex items-center gap-2 text-[16px] font-bold">
+          <h1 className="text-lightGray  relative inline-flex items-center gap-2 text-[16px] font-bold">
             {heading}
             <img src={info} alt="" className="info-area cursor-pointer" />
             <span
-              className={`text-[14px] font-medium text-[#EFEFEF] bg-[#3958FF] p-[10px] rounded-[12px] block absolute w-[260px] transition-all top-[100%] -right-5 z-10 opacity-0 ${
+              className={`text-[14px] font-medium text-lightGray2 bg-blue p-[10px] rounded-[12px] block absolute w-[260px] transition-all top-[100%] -right-5 z-10 opacity-0 ${
                 left && "right-[unset] left-0"
               }`}
             >
@@ -97,7 +97,7 @@ export const PerformanceBox = ({
             </span>
           </h1>
 
-          <p className="text-[#EFEFEF] font-bold text-[25px] mt-2 md:text-[20px]">
+          <p className="text-lightGray2 font-bold text-[25px] mt-2 md:text-[20px]">
             {number}
           </p>
         </div>

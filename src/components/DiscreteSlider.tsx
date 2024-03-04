@@ -40,10 +40,10 @@ export default function DiscreteSlider({
         max={2}
       />
       <div className="flex items-center justify-between -translate-x-1 pr-1 -translate-y-2">
-        <h1 className="text-[#CCCCCC] text-[14px]  -translate-x-1">0.1</h1>
-        <h1 className="text-[#CCCCCC] text-[14px] -translate-x-2 ">0.5</h1>
-        <h1 className="text-[#CCCCCC] text-[14px]  -translate-x-2">1</h1>
-        <h1 className="text-[#CCCCCC] text-[14px]">2</h1>
+        <h1 className="text-lightGray text-[14px]  -translate-x-1">0.1</h1>
+        <h1 className="text-lightGray text-[14px] -translate-x-2 ">0.5</h1>
+        <h1 className="text-lightGray text-[14px]  -translate-x-2">1</h1>
+        <h1 className="text-lightGray text-[14px]">2</h1>
       </div>
     </Box>
   );

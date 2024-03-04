@@ -59,7 +59,7 @@ export const Bet = () => {
     <div className="w-full">
       {loading && (
         <div
-          className="fixed top-0 left-0 h-[100vh] w-full bg-[#fff] opacity-80 z-50 flex items-center justify-center"
+          className="fixed top-0 left-0 h-[100vh] w-full bg-white opacity-80 z-50 flex items-center justify-center"
           style={{ backgroundColor: `rgb(29, 40, 93)` }}
         >
           <div className="ring-area">
@@ -72,15 +72,15 @@ export const Bet = () => {
       <div className="1lg:w-[90%] sm:!w-full sm:pl-4   w-[1140px] mx-auto mt-[36px] ">
         <div className="grid grid-cols-3 gap-3 mb-8 sm:flex sm:overflow-scroll">
           <div
-            className={`px-[20px] sm:px-[15px]   py-[12px] sm:min-w-[251px] rounded-[16px] bg-[#3958FF] relative sm:static ${
+            className={`px-[20px] sm:px-[15px]   py-[12px] sm:min-w-[251px] rounded-[16px] bg-blue relative sm:static ${
               active && "rounded-bl-none rounded-br-none"
             }`}
           >
-            <h1 className="text-[16px] text-[#CCCCCC] lg:text-[13px] font-bold">
+            <h1 className="text-[16px] text-lightGray lg:text-[13px] font-bold">
               Balance
             </h1>
             <div className="flex items-center justify-between mt-2">
-              <p className="text-[30px] text-[#EFEFEF] font-bold lg:text-[20px]">
+              <p className="text-[30px] text-lightGray2 font-bold lg:text-[20px]">
                 <span className=" inline-block min-w-[80px] sm:w-[unset] sm:mr-1">
                   {Number(currentBalance.balance).toFixed(
                     currentBalance.symbol === "BTC" ? 8 : 2
@@ -109,7 +109,7 @@ export const Bet = () => {
               )}
             </div>
             {active && (
-              <ul className="bg-[#23284F] px-[20px] border-[1px] border-[#3958FF] rounded-bl-[8px] left-0 top-[100%] rounded-br-[8px] absolute w-full z-20 sm:top-[185px] sm:w-[251px] sm:left-[1rem]">
+              <ul className="bg-darkBlue px-[20px] border-[1px] border-blue rounded-bl-[8px] left-0 top-[100%] rounded-br-[8px] absolute w-full z-20 sm:top-[185px] sm:w-[251px] sm:left-[1rem]">
                 {userAccount.map((EachList: any) => (
                   <li
                     onClick={(e) => {
@@ -130,7 +130,7 @@ export const Bet = () => {
                         itemOffset
                       );
                     }}
-                    className="text-[16px] font-bold text-[#EFEFEF] h-[56px] border-b-[1px] border-b-[#444869] flex items-center cursor-pointer sm:w-[unset]"
+                    className="text-[16px] font-bold text-lightGray2 h-[56px] border-b-[1px] border-b-darkBlueGray flex items-center cursor-pointer sm:w-[unset]"
                   >
                     <span className="inline-block w-[100px] sm:w-[unset] mr-3 text-right sm:text-left ">
                       {Number(EachList.balance).toFixed(
@@ -146,8 +146,8 @@ export const Bet = () => {
             )}
           </div>
 
-          <div className="px-[20px] sm:min-w-[154px] py-[12px] rounded-[16px] bg-[#23284F] border-[1px] border-[#444869]  sm:px-[15px]">
-            <h1 className="text-[16px] text-[#CCCCCC]  lg:text-[13px]  font-bold">
+          <div className="px-[20px] sm:min-w-[154px] py-[12px] rounded-[16px] bg-darkBlue border-[1px] border-darkBlueGray  sm:px-[15px]">
+            <h1 className="text-[16px] text-lightGray  lg:text-[13px]  font-bold">
               P&L
             </h1>
             <div className="flex items-center justify-between mt-2">
@@ -165,12 +165,12 @@ export const Bet = () => {
               </p>
             </div>
           </div>
-          <div className="px-[20px] py-[12px] rounded-[16px] bg-[#23284F]  border-[1px] border-[#444869]  sm:min-w-[154px] sm:px-[15px] sm:mr-3">
-            <h1 className="text-[16px] text-[#CCCCCC] lg:text-[13px]  font-bold">
+          <div className="px-[20px] py-[12px] rounded-[16px] bg-darkBlue  border-[1px] border-darkBlueGray  sm:min-w-[154px] sm:px-[15px] sm:mr-3">
+            <h1 className="text-[16px] text-lightGray lg:text-[13px]  font-bold">
               Open bets
             </h1>
             <div className="flex items-center justify-between mt-2">
-              <p className="text-[30px] text-[#EFEFEF] font-bold lg:text-[20px]">
+              <p className="text-[30px] text-lightGray2 font-bold lg:text-[20px]">
                 {Number(currentBalance.unsettled_balance).toFixed(
                   currentBalance.symbol == "BTC" ? 8 : 2
                 )}
@@ -180,12 +180,12 @@ export const Bet = () => {
         </div>
       </div>
       <div className="1lg:w-[90%]  w-[1140px] mx-auto  mb-[60px]">
-        <div className="p-[30px] rounded-[24px] bg-[#23284F] border-[1px] border-[#444869] sm:p-4">
+        <div className="p-[30px] rounded-[24px] bg-darkBlue border-[1px] border-darkBlueGray sm:p-4">
           <ul className="flex flex-col gap-4">
             {currentItems.map((EachBet: any) => (
               <li
                 key={EachBet._id}
-                className=" bg-[#171B35] py-4 px-5 rounded-[16px]  border-[1px] border-[#444869] flex items-center 1lg:flex-col 1lg:items-start 1lg:gap-2"
+                className=" bg-darkBluish py-4 px-5 rounded-[16px]  border-[1px] border-darkBlueGray flex items-center 1lg:flex-col 1lg:items-start 1lg:gap-2"
               >
                 <div className="w-[330px] pr-[30px] sm:pr-[0px] flex items-center gap-3 1lg:w-full">
                   {EachBet.sport == "Football" && (
@@ -268,17 +268,17 @@ export const Bet = () => {
                     />
                   )}
 
-                  <p className="text-[#EFEFEF] font-bold sm:text-[15px]">
+                  <p className="text-lightGray2 font-bold sm:text-[15px]">
                     {EachBet["event"]}
                   </p>
                 </div>
                 <div className="w-[198px] 1lg:w-full">
-                  <p className="text-[#EFEFEF] text-[16px] sm:text-[14px]">
+                  <p className="text-lightGray2 text-[16px] sm:text-[14px]">
                     {EachBet["bet"]}
                   </p>
                 </div>
                 <div className="flex-1  flex items-center justify-center">
-                  <p className="text-[#EFEFEF] text-[16px]   font-medium">
+                  <p className="text-lightGray2 text-[16px]   font-medium">
                     Stake:{" "}
                     {Number(EachBet["staked"]).toFixed(
                       currentBalance.symbol == "BTC" ? 8 : 2
@@ -321,7 +321,7 @@ export const Bet = () => {
                   ) : (
                     <span className="flex items-center  font-semibold  pr-[10px] sm:text-[12px] flex-1  sm:flex-[unset] sm:w-[100px] sm:text-center sm:justify-center rounded-[10px] text-[18px] opacity-0"></span>
                   )}
-                  <span className="flex w-[90px] text-[14px] items-center justify-center text-[#fff] font-bold  border-[1px] border-[#3958FF] 1lg:w-full px-[10px] py-[9px] rounded-[10px] sm:!w-[100px]  sm:px-[10px] sm:text-[12px]">
+                  <span className="flex w-[90px] text-[14px] items-center justify-center text-white font-bold  border-[1px] border-blue 1lg:w-full px-[10px] py-[9px] rounded-[10px] sm:!w-[100px]  sm:px-[10px] sm:text-[12px]">
                     Odd: {Number(EachBet["odd"]).toFixed(2)}
                   </span>
                   <span

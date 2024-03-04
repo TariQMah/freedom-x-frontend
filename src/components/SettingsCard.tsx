@@ -38,7 +38,7 @@ export const SettingsCard = () => {
     <div>
       {loading && (
         <div
-          className="fixed top-0 left-0 h-[100vh] w-full bg-[#fff] opacity-80 z-50 flex items-center justify-center"
+          className="fixed top-0 left-0 h-[100vh] w-full bg-white opacity-80 z-50 flex items-center justify-center"
           style={{ backgroundColor: `rgb(29, 40, 93)` }}
         >
           <div className="ring-area">
@@ -48,7 +48,7 @@ export const SettingsCard = () => {
         </div>
       )}
       <ToastContainer hideProgressBar={true} />
-      <div className="md:w-[90%] mx-auto  w-[575px] p-[30px] bg-[#23284F] rounded-[24px] border-[1px] border-[#444869] sm:p-[16px] mb-5">
+      <div className="md:w-[90%] mx-auto  w-[575px] p-[30px] bg-darkBlue rounded-[24px] border-[1px] border-darkBlueGray sm:p-[16px] mb-5">
         <div className="flex items-center justify-center">
           <img
             src={OuterData != null ? OuterData.profilePicture : avatar}
@@ -58,35 +58,29 @@ export const SettingsCard = () => {
         </div>
         <div className="grid grid-cols-2 mt-6 gap-5 ">
           <div>
-            <label
-              htmlFor="#"
-              className="text-[#FFFFFF] text-[17px] mb-2 block"
-            >
+            <label htmlFor="#" className="text-white text-[17px] mb-2 block">
               First Name
             </label>
-            <div className="flex w-full rounded-[12px] border-[1px] border-[#444869] h-[50px] items-center px-3">
+            <div className="flex w-full rounded-[12px] border-[1px] border-darkBlueGray h-[50px] items-center px-3">
               <input
                 type="text"
                 readOnly
                 value={OuterData != null ? OuterData["name"].split(" ")[0] : ""}
-                className="bg-[transparent] text-[#EFEFEF] text-[16px] flex-1 w-full outline-none border-0 placeholder:text-[#EFEFEF]"
+                className="bg-[transparent] text-lightGray2 text-[16px] flex-1 w-full outline-none border-0 placeholder:text-lightGray2"
                 placeholder="Jhon"
               />
             </div>
           </div>
           <div>
-            <label
-              htmlFor="#"
-              className="text-[#FFFFFF] text-[17px] mb-2 block"
-            >
+            <label htmlFor="#" className="text-white text-[17px] mb-2 block">
               Last Name
             </label>
-            <div className="flex w-full rounded-[12px] border-[1px] border-[#444869] h-[50px] items-center px-3">
+            <div className="flex w-full rounded-[12px] border-[1px] border-darkBlueGray h-[50px] items-center px-3">
               <input
                 type="text"
                 readOnly
                 value={OuterData != null ? OuterData["name"].split(" ")[1] : ""}
-                className="bg-[transparent] text-[#EFEFEF] text-[16px] flex-1 w-full outline-none border-0 placeholder:text-[#EFEFEF]"
+                className="bg-[transparent] text-lightGray2 text-[16px] flex-1 w-full outline-none border-0 placeholder:text-lightGray2"
                 placeholder="Jhon"
               />
             </div>
@@ -94,8 +88,8 @@ export const SettingsCard = () => {
         </div>
 
         <div className="mt-6">
-          <div className="flex bg-[#171B35] w-full rounded-[12px] border-[1px] border-[#3B3D53] h-[50px] items-center px-3 cursor-pointer justify-between">
-            <p className="text-[#FFFFFF] font-medium text-[16px]">
+          <div className="flex bg-darkBluish w-full rounded-[12px] border-[1px] border-darkBlueGray1 h-[50px] items-center px-3 cursor-pointer justify-between">
+            <p className="text-white font-medium text-[16px]">
               Activate bet Notifications
             </p>
             <ToggleSwitch checked={switch1} onChange={setSwitch1} />
@@ -104,16 +98,13 @@ export const SettingsCard = () => {
 
         <div className="gap-5 my-6 md:grid-cols-1">
           <div>
-            <label
-              htmlFor="#"
-              className="text-[#FFFFFF] text-[17px] mb-2 block"
-            >
+            <label htmlFor="#" className="text-white text-[17px] mb-2 block">
               Referral Code
             </label>
-            <div className="flex bg-[#171B35] w-full rounded-[12px] border-[1px] border-[#3B3D53] h-[50px] items-center px-3 cursor-pointer">
+            <div className="flex bg-darkBluish w-full rounded-[12px] border-[1px] border-darkBlueGray1 h-[50px] items-center px-3 cursor-pointer">
               <input
                 type={password ? "password" : "text"}
-                className="bg-[transparent] text-[#CCCCCC] text-[16px] flex-1 w-full outline-none border-0"
+                className="bg-[transparent] text-lightGray text-[16px] flex-1 w-full outline-none border-0"
                 value={refCode}
                 onChange={(e) => {
                   setrefCode(e.target.value);
@@ -141,7 +132,7 @@ export const SettingsCard = () => {
           <div>
             {/* <label
               htmlFor="#"
-              className="text-[#FFFFFF] text-[17px] mb-2 block"
+              className="text-white text-[17px] mb-2 block"
             >
               Multiplier
             </label>
@@ -170,7 +161,7 @@ export const SettingsCard = () => {
                       console.log(Each);
                       setmultiplierVal(Each);
                     }}
-                    className="text-[#CCCCCC] text-[16px]   outline-none  flex bg-[#171B35] w-[50px] rounded-[12px] border-[1px] border-[#3B3D53] h-[50px]  items-center justify-center cursor-pointer"
+                    className="text-lightGray text-[16px]   outline-none  flex bg-darkBluish w-[50px] rounded-[12px] border-[1px] border-darkBlueGray1 h-[50px]  items-center justify-center cursor-pointer"
                   >
                     {Each}x
                   </label>
@@ -181,13 +172,13 @@ export const SettingsCard = () => {
         </div>
 
         <button
-          className="text-[#FFFFFF] tect-[16px] w-full h-[49px] bg-[#3958FF]  rounded-[12px]"
+          className="text-white tect-[16px] w-full h-[49px] bg-blue  rounded-[12px]"
           onClick={setSettings}
         >
           Save Changes
         </button>
       </div>
-      <button className="text-[#fff] font-semibold text-[16px] w-[249px] h-[49px] border-[1px] border-[#EB5757] rounded-[12px] absolute left-1/2 -translate-x-1/2 bottom-5 skipbutton md:w-[90%] sm:static sm:translate-x-0 sm:mx-auto sm:mb-7 sm:block">
+      <button className="text-white font-semibold text-[16px] w-[249px] h-[49px] border-[1px] border-red rounded-[12px] absolute left-1/2 -translate-x-1/2 bottom-5 skipbutton md:w-[90%] sm:static sm:translate-x-0 sm:mx-auto sm:mb-7 sm:block">
         Delete Account
       </button>
     </div>

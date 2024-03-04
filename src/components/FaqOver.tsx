@@ -6,8 +6,8 @@ export const FaqOver = ({ EachFaq }: any) => {
   const [active, setActive] = useState(true);
   return (
     <li
-      className={`border-[1px] border-[#3C3E56] rounded-[12px] w-full ${
-        active === true && "bg-[#23284F]"
+      className={`border-[1px] border-darkGray rounded-[12px] w-full ${
+        active === true && "bg-darkBlue"
       }`}
     >
       <div
@@ -16,7 +16,7 @@ export const FaqOver = ({ EachFaq }: any) => {
           setActive(!active);
         }}
       >
-        <h1 className="text-[#EFEFEF] capitalize font-semibold text-[18px]">
+        <h1 className="text-lightGray2 capitalize font-semibold text-[18px]">
           {EachFaq.heading}
         </h1>
         {active ? <img src={minus} alt="" /> : <img src={plus} alt="" />}
@@ -25,7 +25,7 @@ export const FaqOver = ({ EachFaq }: any) => {
       {active && (
         <>
           {EachFaq.subpara && (
-            <h1 className="text-[#EFEFEF] px-5 font-semibold text-[14px]">
+            <h1 className="text-lightGray2 px-5 font-semibold text-[14px]">
               {EachFaq.subpara}
             </h1>
           )}

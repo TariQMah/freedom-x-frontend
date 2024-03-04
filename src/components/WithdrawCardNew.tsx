@@ -34,11 +34,11 @@ export const WithdrawCardNew = ({ logoCustom }: any) => {
   return (
     <div>
       <ToastContainer hideProgressBar={true} />
-      <div className="md:w-[90%] mx-auto  w-[534px] p-[30px] bg-[#23284F] rounded-[24px] border-[1px] border-[#444869] sm:p-[16px]">
+      <div className="md:w-[90%] mx-auto  w-[534px] p-[30px] bg-darkBlue rounded-[24px] border-[1px] border-darkBlueGray sm:p-[16px]">
         {logoCustom && <img src={logo} alt="" className="mx-auto" />}
 
         <div className="mt-6">
-          <label htmlFor="#" className="text-[#FFFFFF] text-[17px] mb-2 block">
+          <label htmlFor="#" className="text-white text-[17px] mb-2 block">
             Select Coin
           </label>
 
@@ -73,7 +73,7 @@ export const WithdrawCardNew = ({ logoCustom }: any) => {
           />
         </div>
         <div className="mt-6">
-          <label htmlFor="#" className="text-[#FFFFFF] text-[17px] mb-2 block">
+          <label htmlFor="#" className="text-white text-[17px] mb-2 block">
             Select network
           </label>
 
@@ -85,16 +85,16 @@ export const WithdrawCardNew = ({ logoCustom }: any) => {
           />
         </div>
         <div className="mt-6 flex items-center  gap-[13px]">
-          <div className="p-[6px] bg-[#fff] w-[94px] h-[94px] rounded-lg">
+          <div className="p-[6px] bg-white w-[94px] h-[94px] rounded-lg">
             <QRCode
               className="w-full h-full"
               value="0xkshjdahfl98765rfgbnjki87ytfvbnjki87ytfvbnm2345678"
             />
           </div>
           <div className="flex-1">
-            <h1 className="text-[#FFFFFF] font-bold">Deposit Address</h1>
+            <h1 className="text-white font-bold">Deposit Address</h1>
             <div className="flex items-center justify-between mt-[14px]">
-              <p className="w-[194px] break-words text-[#FFFFFF] text-[14px] sm:w-[150px]">
+              <p className="w-[194px] break-words text-white text-[14px] sm:w-[150px]">
                 {address}
               </p>
               <img
@@ -110,14 +110,14 @@ export const WithdrawCardNew = ({ logoCustom }: any) => {
           </div>
         </div>
         <div className="my-6">
-          <label htmlFor="#" className="text-[#FFFFFF] text-[17px] mb-2 block">
+          <label htmlFor="#" className="text-white text-[17px] mb-2 block">
             Add your TXH
           </label>
 
-          <div className="flex bg-[#171B35] w-full rounded-[12px] border-[1px] border-[#3B3D53] h-[50px] items-center px-3 cursor-pointer">
+          <div className="flex bg-darkBluish w-full rounded-[12px] border-[1px] border-darkBlueGray1 h-[50px] items-center px-3 cursor-pointer">
             <input
               type={password ? "password" : "text"}
-              className="bg-[transparent] text-[#CCCCCC] text-[16px] flex-1 w-full outline-none border-0"
+              className="bg-[transparent] text-lightGray text-[16px] flex-1 w-full outline-none border-0"
               value={pasteValue}
               onChange={(e) => {
                 setpasteValue(e.target.value);
@@ -144,7 +144,7 @@ export const WithdrawCardNew = ({ logoCustom }: any) => {
           </div>
         </div>
         <button
-          className="text-[#FFFFFF] tect-[16px] w-full h-[49px] bg-[#3958FF]  rounded-[12px]"
+          className="text-white tect-[16px] w-full h-[49px] bg-blue  rounded-[12px]"
           onClick={startDeposit}
         >
           Deposit
