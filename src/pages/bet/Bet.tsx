@@ -17,6 +17,8 @@ import { bets } from "../../assets/axios/Bets";
 import { account } from "../../assets/axios/Account";
 import Pagination from "@mui/material/Pagination";
 import Loader from "../../components/Loader";
+import Footer from "../../components/Footer";
+import Layout from "../../components/Layout";
 
 export const Bet = () => {
   const [active, setActive] = useState(false);
@@ -58,310 +60,315 @@ export const Bet = () => {
 
   return (
     <div className="w-full">
-      {loading && <Loader />}
-      <Header active={1} page="Bet History" />
-      <div className="1lg:w-[90%] sm:!w-full sm:pl-4   w-[1140px] mx-auto mt-[36px] ">
-        <div className="grid grid-cols-3 gap-3 mb-8 sm:flex sm:overflow-scroll">
-          <div
-            className={`px-[20px] sm:px-[15px]   py-[12px] sm:min-w-[251px] rounded-[16px] bg-blue relative sm:static ${
-              active && "rounded-bl-none rounded-br-none"
-            }`}
-          >
-            <h1 className="text-[16px] text-lightGray lg:text-[13px] font-bold">
-              Balance
-            </h1>
-            <div className="flex items-center justify-between mt-2">
-              <p className="text-[30px] text-lightGray2 font-bold lg:text-[20px]">
-                <span className=" inline-block min-w-[80px] sm:w-[unset] sm:mr-1">
-                  {Number(currentBalance.balance).toFixed(
-                    currentBalance.symbol === "BTC" ? 8 : 2
-                  )}
-                </span>{" "}
-                {currentBalance.symbol}
-              </p>
-              {active ? (
-                <img
-                  src={dropdownBetWhite}
-                  alt=""
-                  className="cursor-pointer"
-                  onClick={(e) => {
-                    setActive(!active);
-                  }}
-                />
-              ) : (
-                <img
-                  src={dropdownBet}
-                  alt=""
-                  className="cursor-pointer"
-                  onClick={(e) => {
-                    setActive(!active);
-                  }}
-                />
-              )}
-            </div>
-            {active && (
-              <ul className="bg-darkBlue px-[20px] border-[1px] border-blue rounded-bl-[8px] left-0 top-[100%] rounded-br-[8px] absolute w-full z-20 sm:top-[185px] sm:w-[251px] sm:left-[1rem]">
-                {userAccount.map((EachList: any) => (
-                  <li
-                    onClick={(e) => {
-                      setActive(false);
-
-                      window.localStorage.setItem(
-                        "balance",
-                        JSON.stringify(EachList)
-                      );
-                      setcurrentBalance(EachList);
-
-                      bets.getBets(
-                        setbetsState,
-                        setbetsStateBackup,
-                        setloading,
-                        setpageCount,
-                        setcurrentItems,
-                        itemOffset
-                      );
-                    }}
-                    className="text-[16px] font-bold text-lightGray2 h-[56px] border-b-[1px] border-b-darkBlueGray flex items-center cursor-pointer sm:w-[unset]"
-                  >
-                    <span className="inline-block w-[100px] sm:w-[unset] mr-3 text-right sm:text-left ">
-                      {Number(EachList.balance).toFixed(
-                        EachList.symbol === "BTC" ? 8 : 2
+      <Layout active={1} page="Bet History" loading={loading}>
+        <>
+          <div className="1lg:w-[90%] sm:!w-full sm:pl-4   w-[1140px] mx-auto mt-[36px] ">
+            <div className="grid grid-cols-3 gap-3 mb-8 sm:flex sm:overflow-scroll">
+              <div
+                className={`px-[20px] sm:px-[15px]   py-[12px] sm:min-w-[251px] rounded-[16px] bg-blue relative sm:static ${
+                  active && "rounded-bl-none rounded-br-none"
+                }`}
+              >
+                <h1 className="text-[16px] text-lightGray lg:text-[13px] font-bold">
+                  Balance
+                </h1>
+                <div className="flex items-center justify-between mt-2">
+                  <p className="text-[30px] text-lightGray2 font-bold lg:text-[20px]">
+                    <span className=" inline-block min-w-[80px] sm:w-[unset] sm:mr-1">
+                      {Number(currentBalance.balance).toFixed(
+                        currentBalance.symbol === "BTC" ? 8 : 2
                       )}
-                    </span>
-                    <span className=" inline-block w-[80px] ">
-                      {EachList.symbol}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+                    </span>{" "}
+                    {currentBalance.symbol}
+                  </p>
+                  {active ? (
+                    <img
+                      src={dropdownBetWhite}
+                      alt=""
+                      className="cursor-pointer"
+                      onClick={(e) => {
+                        setActive(!active);
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={dropdownBet}
+                      alt=""
+                      className="cursor-pointer"
+                      onClick={(e) => {
+                        setActive(!active);
+                      }}
+                    />
+                  )}
+                </div>
+                {active && (
+                  <ul className="bg-darkBlue px-[20px] border-[1px] border-blue rounded-bl-[8px] left-0 top-[100%] rounded-br-[8px] absolute w-full z-20 sm:top-[185px] sm:w-[251px] sm:left-[1rem]">
+                    {userAccount.map((EachList: any) => (
+                      <li
+                        onClick={(e) => {
+                          setActive(false);
 
-          <div className="px-[20px] sm:min-w-[154px] py-[12px] rounded-[16px] bg-darkBlue border-[1px] border-darkBlueGray  sm:px-[15px]">
-            <h1 className="text-[16px] text-lightGray  lg:text-[13px]  font-bold">
-              P&L
-            </h1>
-            <div className="flex items-center justify-between mt-2">
-              <p
-                className={`text-[30px] font-bold lg:text-[20px]
+                          window.localStorage.setItem(
+                            "balance",
+                            JSON.stringify(EachList)
+                          );
+                          setcurrentBalance(EachList);
+
+                          bets.getBets(
+                            setbetsState,
+                            setbetsStateBackup,
+                            setloading,
+                            setpageCount,
+                            setcurrentItems,
+                            itemOffset
+                          );
+                        }}
+                        className="text-[16px] font-bold text-lightGray2 h-[56px] border-b-[1px] border-b-darkBlueGray flex items-center cursor-pointer sm:w-[unset]"
+                      >
+                        <span className="inline-block w-[100px] sm:w-[unset] mr-3 text-right sm:text-left ">
+                          {Number(EachList.balance).toFixed(
+                            EachList.symbol === "BTC" ? 8 : 2
+                          )}
+                        </span>
+                        <span className=" inline-block w-[80px] ">
+                          {EachList.symbol}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              <div className="px-[20px] sm:min-w-[154px] py-[12px] rounded-[16px] bg-darkBlue border-[1px] border-darkBlueGray  sm:px-[15px]">
+                <h1 className="text-[16px] text-lightGray  lg:text-[13px]  font-bold">
+                  P&L
+                </h1>
+                <div className="flex items-center justify-between mt-2">
+                  <p
+                    className={`text-[30px] font-bold lg:text-[20px]
                ${
                  currentBalance.pnl.split("-").length > 1
                    ? "text-[#EB5757] "
                    : "text-[#27AE60] "
                }`}
-              >
-                {Number(currentBalance.pnl).toFixed(
-                  currentBalance.symbol == "BTC" ? 8 : 2
-                )}
-              </p>
-            </div>
-          </div>
-          <div className="px-[20px] py-[12px] rounded-[16px] bg-darkBlue  border-[1px] border-darkBlueGray  sm:min-w-[154px] sm:px-[15px] sm:mr-3">
-            <h1 className="text-[16px] text-lightGray lg:text-[13px]  font-bold">
-              Open bets
-            </h1>
-            <div className="flex items-center justify-between mt-2">
-              <p className="text-[30px] text-lightGray2 font-bold lg:text-[20px]">
-                {Number(currentBalance.unsettled_balance).toFixed(
-                  currentBalance.symbol == "BTC" ? 8 : 2
-                )}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="1lg:w-[90%]  w-[1140px] mx-auto  mb-[60px]">
-        <div className="p-[30px] rounded-[24px] bg-darkBlue border-[1px] border-darkBlueGray sm:p-4">
-          <ul className="flex flex-col gap-4">
-            {currentItems.map((EachBet: any) => (
-              <li
-                key={EachBet._id}
-                className=" bg-darkBluish py-4 px-5 rounded-[16px]  border-[1px] border-darkBlueGray flex items-center 1lg:flex-col 1lg:items-start 1lg:gap-2"
-              >
-                <div className="w-[330px] pr-[30px] sm:pr-[0px] flex items-center gap-3 1lg:w-full">
-                  {EachBet.sport == "Football" && (
-                    <img
-                      src={football}
-                      className="w-[45px] rounded-full"
-                      alt=""
-                    />
-                  )}
-                  {EachBet.sport == "Alpine Skiing" && (
-                    <img
-                      src={Alpine}
-                      className="w-[45px] rounded-full"
-                      alt=""
-                    />
-                  )}
-                  {EachBet.sport == "Biathlon" && (
-                    <img
-                      src={Biathlon}
-                      className="w-[45px] rounded-full"
-                      alt=""
-                    />
-                  )}
-                  {EachBet.sport == "Cricket" && (
-                    <img
-                      src={Cricket}
-                      className="w-[45px] rounded-full"
-                      alt=""
-                    />
-                  )}
-                  {EachBet.sport == "Cycling" && (
-                    <img
-                      src={Cycling}
-                      className="w-[45px] rounded-full"
-                      alt=""
-                    />
-                  )}
-                  {EachBet.sport == "Formula 1" && (
-                    <img
-                      src={Formula}
-                      className="w-[45px] rounded-full"
-                      alt=""
-                    />
-                  )}
-                  {EachBet.sport == "Motorcycling" && (
-                    <img
-                      src={Motorcycling}
-                      className="w-[45px] rounded-full"
-                      alt=""
-                    />
-                  )}
-                  {EachBet.sport == "Tennis" && (
-                    <img
-                      src={Tennis}
-                      className="w-[45px] rounded-full"
-                      alt=""
-                    />
-                  )}
-
-                  {EachBet.sport == "Athletics" && (
-                    <img
-                      src={Athletics}
-                      className="w-[45px] rounded-full"
-                      alt=""
-                    />
-                  )}
-                  {EachBet.sport == "Skiing" && (
-                    <img
-                      src={Skiing}
-                      className="w-[45px] rounded-full"
-                      alt=""
-                    />
-                  )}
-
-                  {EachBet.sport == "Curling" && (
-                    <img
-                      src={Curling}
-                      className="w-[45px] rounded-full"
-                      alt=""
-                    />
-                  )}
-
-                  <p className="text-lightGray2 font-bold sm:text-[15px]">
-                    {EachBet["event"]}
-                  </p>
-                </div>
-                <div className="w-[198px] 1lg:w-full">
-                  <p className="text-lightGray2 text-[16px] sm:text-[14px]">
-                    {EachBet["bet"]}
-                  </p>
-                </div>
-                <div className="flex-1  flex items-center justify-center">
-                  <p className="text-lightGray2 text-[16px]   font-medium">
-                    Stake:{" "}
-                    {Number(EachBet["staked"]).toFixed(
+                  >
+                    {Number(currentBalance.pnl).toFixed(
                       currentBalance.symbol == "BTC" ? 8 : 2
                     )}
                   </p>
                 </div>
-                <div
-                  className={`w-[288px] 1lg:w-full 1lg:justify-start flex items-center  gap-2 ${
-                    Math.abs(EachBet["staked"] * (1 - EachBet["odd"])).toFixed(
-                      3
-                    ) == "0.000" && "justify-end"
-                  }`}
-                >
-                  {EachBet["status"] != "open" ? (
-                    <>
-                      {Math.abs(EachBet["staked"] * (1 - EachBet["odd"])) !==
-                        0 && (
-                        <span
-                          className="flex items-center  font-semibold  pr-[10px] sm:text-[12px] flex-1  sm:flex-[unset] sm:w-[100px] sm:text-center sm:justify-center rounded-[10px] text-[18px]"
-                          style={
-                            EachBet["status"] == "win"
-                              ? {
-                                  color: "#27AE60",
-                                }
-                              : {
-                                  color: "#EB5757",
-                                }
-                          }
-                        >
-                          {EachBet["status"] == "lose"
-                            ? Number(EachBet["staked"]).toFixed(
-                                currentBalance.symbol == "BTC" ? 8 : 2
-                              )
-                            : Math.abs(
-                                EachBet["staked"] * (1 - EachBet["odd"])
-                              ).toFixed(currentBalance.symbol == "BTC" ? 8 : 2)}
-                        </span>
-                      )}
-                    </>
-                  ) : (
-                    <span className="flex items-center  font-semibold  pr-[10px] sm:text-[12px] flex-1  sm:flex-[unset] sm:w-[100px] sm:text-center sm:justify-center rounded-[10px] text-[18px] opacity-0"></span>
-                  )}
-                  <span className="flex w-[90px] text-[14px] items-center justify-center text-white font-bold  border-[1px] border-blue 1lg:w-full px-[10px] py-[9px] rounded-[10px] sm:!w-[100px]  sm:px-[10px] sm:text-[12px]">
-                    Odd: {Number(EachBet["odd"]).toFixed(2)}
-                  </span>
-                  <span
-                    className="flex items-center text-[14px] justify-center  font-bold border-[1px] 1lg:w-full  px-[20px] py-[9px] rounded-[10px] sm:px-[10px] sm:text-[12px] w-[60px]  capitalize sm:!w-[100px]"
-                    style={
-                      EachBet["status"] == "win"
-                        ? {
-                            color: "#25AF60",
-                            borderColor: "#25AF60",
-                            backgroundColor: "#25af614e",
-                          }
-                        : EachBet["status"] == "lose"
-                        ? {
-                            color: "#EB5757",
-                            borderColor: "#EB5757",
-                            backgroundColor: "#2D2139",
-                          }
-                        : {
-                            color: "#3958FF",
-                            borderColor: "#3958FF",
-                            backgroundColor: "#1D285D",
-                          }
-                    }
-                  >
-                    {EachBet["status"] == "win" && "Won"}
-                    {EachBet["status"] == "lose" && "Lost"}
-                    {EachBet["status"] == "open" && "Open"}
-                    {EachBet["status"] == "live" && "Live"}
-                  </span>
+              </div>
+              <div className="px-[20px] py-[12px] rounded-[16px] bg-darkBlue  border-[1px] border-darkBlueGray  sm:min-w-[154px] sm:px-[15px] sm:mr-3">
+                <h1 className="text-[16px] text-lightGray lg:text-[13px]  font-bold">
+                  Open bets
+                </h1>
+                <div className="flex items-center justify-between mt-2">
+                  <p className="text-[30px] text-lightGray2 font-bold lg:text-[20px]">
+                    {Number(currentBalance.unsettled_balance).toFixed(
+                      currentBalance.symbol == "BTC" ? 8 : 2
+                    )}
+                  </p>
                 </div>
-              </li>
-            ))}
-          </ul>
-          {window.innerWidth > 500 && (
-            <div className="flex items-center mt-5 justify-center gap-[5px] sm:gap-[2px]">
-              <Pagination
-                count={pageCount}
-                onChange={(
-                  event: React.ChangeEvent<unknown>,
-                  value: number
-                ) => {
-                  handlePageClick(value);
-                }}
-                color="primary"
-              />
+              </div>
             </div>
-          )}
-        </div>
-      </div>
+          </div>
+          <div className="1lg:w-[90%]  w-[1140px] mx-auto  mb-[60px]">
+            <div className="p-[30px] rounded-[24px] bg-darkBlue border-[1px] border-darkBlueGray sm:p-4">
+              <ul className="flex flex-col gap-4">
+                {currentItems.map((EachBet: any) => (
+                  <li
+                    key={EachBet._id}
+                    className=" bg-darkBluish py-4 px-5 rounded-[16px]  border-[1px] border-darkBlueGray flex items-center 1lg:flex-col 1lg:items-start 1lg:gap-2"
+                  >
+                    <div className="w-[330px] pr-[30px] sm:pr-[0px] flex items-center gap-3 1lg:w-full">
+                      {EachBet.sport == "Football" && (
+                        <img
+                          src={football}
+                          className="w-[45px] rounded-full"
+                          alt=""
+                        />
+                      )}
+                      {EachBet.sport == "Alpine Skiing" && (
+                        <img
+                          src={Alpine}
+                          className="w-[45px] rounded-full"
+                          alt=""
+                        />
+                      )}
+                      {EachBet.sport == "Biathlon" && (
+                        <img
+                          src={Biathlon}
+                          className="w-[45px] rounded-full"
+                          alt=""
+                        />
+                      )}
+                      {EachBet.sport == "Cricket" && (
+                        <img
+                          src={Cricket}
+                          className="w-[45px] rounded-full"
+                          alt=""
+                        />
+                      )}
+                      {EachBet.sport == "Cycling" && (
+                        <img
+                          src={Cycling}
+                          className="w-[45px] rounded-full"
+                          alt=""
+                        />
+                      )}
+                      {EachBet.sport == "Formula 1" && (
+                        <img
+                          src={Formula}
+                          className="w-[45px] rounded-full"
+                          alt=""
+                        />
+                      )}
+                      {EachBet.sport == "Motorcycling" && (
+                        <img
+                          src={Motorcycling}
+                          className="w-[45px] rounded-full"
+                          alt=""
+                        />
+                      )}
+                      {EachBet.sport == "Tennis" && (
+                        <img
+                          src={Tennis}
+                          className="w-[45px] rounded-full"
+                          alt=""
+                        />
+                      )}
+
+                      {EachBet.sport == "Athletics" && (
+                        <img
+                          src={Athletics}
+                          className="w-[45px] rounded-full"
+                          alt=""
+                        />
+                      )}
+                      {EachBet.sport == "Skiing" && (
+                        <img
+                          src={Skiing}
+                          className="w-[45px] rounded-full"
+                          alt=""
+                        />
+                      )}
+
+                      {EachBet.sport == "Curling" && (
+                        <img
+                          src={Curling}
+                          className="w-[45px] rounded-full"
+                          alt=""
+                        />
+                      )}
+
+                      <p className="text-lightGray2 font-bold sm:text-[15px]">
+                        {EachBet["event"]}
+                      </p>
+                    </div>
+                    <div className="w-[198px] 1lg:w-full">
+                      <p className="text-lightGray2 text-[16px] sm:text-[14px]">
+                        {EachBet["bet"]}
+                      </p>
+                    </div>
+                    <div className="flex-1  flex items-center justify-center">
+                      <p className="text-lightGray2 text-[16px]   font-medium">
+                        Stake:{" "}
+                        {Number(EachBet["staked"]).toFixed(
+                          currentBalance.symbol == "BTC" ? 8 : 2
+                        )}
+                      </p>
+                    </div>
+                    <div
+                      className={`w-[288px] 1lg:w-full 1lg:justify-start flex items-center  gap-2 ${
+                        Math.abs(
+                          EachBet["staked"] * (1 - EachBet["odd"])
+                        ).toFixed(3) == "0.000" && "justify-end"
+                      }`}
+                    >
+                      {EachBet["status"] != "open" ? (
+                        <>
+                          {Math.abs(
+                            EachBet["staked"] * (1 - EachBet["odd"])
+                          ) !== 0 && (
+                            <span
+                              className="flex items-center  font-semibold  pr-[10px] sm:text-[12px] flex-1  sm:flex-[unset] sm:w-[100px] sm:text-center sm:justify-center rounded-[10px] text-[18px]"
+                              style={
+                                EachBet["status"] == "win"
+                                  ? {
+                                      color: "#27AE60",
+                                    }
+                                  : {
+                                      color: "#EB5757",
+                                    }
+                              }
+                            >
+                              {EachBet["status"] == "lose"
+                                ? Number(EachBet["staked"]).toFixed(
+                                    currentBalance.symbol == "BTC" ? 8 : 2
+                                  )
+                                : Math.abs(
+                                    EachBet["staked"] * (1 - EachBet["odd"])
+                                  ).toFixed(
+                                    currentBalance.symbol == "BTC" ? 8 : 2
+                                  )}
+                            </span>
+                          )}
+                        </>
+                      ) : (
+                        <span className="flex items-center  font-semibold  pr-[10px] sm:text-[12px] flex-1  sm:flex-[unset] sm:w-[100px] sm:text-center sm:justify-center rounded-[10px] text-[18px] opacity-0"></span>
+                      )}
+                      <span className="flex w-[90px] text-[14px] items-center justify-center text-white font-bold  border-[1px] border-blue 1lg:w-full px-[10px] py-[9px] rounded-[10px] sm:!w-[100px]  sm:px-[10px] sm:text-[12px]">
+                        Odd: {Number(EachBet["odd"]).toFixed(2)}
+                      </span>
+                      <span
+                        className="flex items-center text-[14px] justify-center  font-bold border-[1px] 1lg:w-full  px-[20px] py-[9px] rounded-[10px] sm:px-[10px] sm:text-[12px] w-[60px]  capitalize sm:!w-[100px]"
+                        style={
+                          EachBet["status"] == "win"
+                            ? {
+                                color: "#25AF60",
+                                borderColor: "#25AF60",
+                                backgroundColor: "#25af614e",
+                              }
+                            : EachBet["status"] == "lose"
+                            ? {
+                                color: "#EB5757",
+                                borderColor: "#EB5757",
+                                backgroundColor: "#2D2139",
+                              }
+                            : {
+                                color: "#3958FF",
+                                borderColor: "#3958FF",
+                                backgroundColor: "#1D285D",
+                              }
+                        }
+                      >
+                        {EachBet["status"] == "win" && "Won"}
+                        {EachBet["status"] == "lose" && "Lost"}
+                        {EachBet["status"] == "open" && "Open"}
+                        {EachBet["status"] == "live" && "Live"}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              {window.innerWidth > 500 && (
+                <div className="flex items-center mt-5 justify-center gap-[5px] sm:gap-[2px]">
+                  <Pagination
+                    count={pageCount}
+                    onChange={(
+                      event: React.ChangeEvent<unknown>,
+                      value: number
+                    ) => {
+                      handlePageClick(value);
+                    }}
+                    color="primary"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      </Layout>
     </div>
   );
 };
