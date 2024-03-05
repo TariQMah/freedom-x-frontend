@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { account } from "../../assets/axios/Account";
 import { useEffect, useState } from "react";
+import Loader from "../../components/Loader";
 export const Login = () => {
   const navigate = useNavigate();
   const [loading, setloading] = useState(false);
@@ -17,17 +18,7 @@ export const Login = () => {
   }, []);
   return (
     <div className="h-[100vh] w-full flex items-center justify-center">
-      {loading && (
-        <div
-          className="fixed top-0 left-0 h-[100vh] w-full bg-white opacity-80 z-50 flex items-center justify-center"
-          style={{ backgroundColor: `rgb(29, 40, 93)` }}
-        >
-          <div className="ring-area">
-            Loading
-            <span></span>
-          </div>
-        </div>
-      )}
+      {loading && <Loader />}
       <div className="w-[90%] max-w-[1158px] p-[30px] bg-darkBlue rounded-[24px] grid grid-cols-[1fr_601px] gap-6 items-center border-[1px] border-darkBlueGray 1lg:grid-cols-1 sm:p-4">
         <div className="sm:flex sm:flex-col sm:items-center">
           <img src={logo} alt="" />

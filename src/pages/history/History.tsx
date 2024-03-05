@@ -5,6 +5,7 @@ import tick from "../../assets/img/tick.svg";
 import { useEffect, useState } from "react";
 import { account } from "../../assets/axios/Account";
 import { Pagination } from "@mui/material";
+import Loader from "../../components/Loader";
 
 export const History = () => {
   const [active, setActive] = useState(false);
@@ -42,17 +43,7 @@ export const History = () => {
 
   return (
     <div className="w-full">
-      {loading && (
-        <div
-          className="fixed top-0 left-0 h-[100vh] w-full bg-white opacity-80 z-50 flex items-center justify-center"
-          style={{ backgroundColor: `rgb(29, 40, 93)` }}
-        >
-          <div className="ring-area">
-            Loading
-            <span></span>
-          </div>
-        </div>
-      )}
+      {loading && <Loader />}
 
       <Header active={3} page="Account History" />
 

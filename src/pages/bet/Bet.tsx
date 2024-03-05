@@ -16,6 +16,7 @@ import { useState, useEffect } from "react";
 import { bets } from "../../assets/axios/Bets";
 import { account } from "../../assets/axios/Account";
 import Pagination from "@mui/material/Pagination";
+import Loader from "../../components/Loader";
 
 export const Bet = () => {
   const [active, setActive] = useState(false);
@@ -57,17 +58,7 @@ export const Bet = () => {
 
   return (
     <div className="w-full">
-      {loading && (
-        <div
-          className="fixed top-0 left-0 h-[100vh] w-full bg-white opacity-80 z-50 flex items-center justify-center"
-          style={{ backgroundColor: `rgb(29, 40, 93)` }}
-        >
-          <div className="ring-area">
-            Loading
-            <span></span>
-          </div>
-        </div>
-      )}
+      {loading && <Loader />}
       <Header active={1} page="Bet History" />
       <div className="1lg:w-[90%] sm:!w-full sm:pl-4   w-[1140px] mx-auto mt-[36px] ">
         <div className="grid grid-cols-3 gap-3 mb-8 sm:flex sm:overflow-scroll">

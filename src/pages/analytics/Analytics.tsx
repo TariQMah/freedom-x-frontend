@@ -5,6 +5,7 @@ import { MonthDropdown } from "../../components/MonthDropdown";
 import { PerformanceBox } from "../../components/PerformanceBox";
 import { analytics } from "../../assets/axios/Analytics";
 import { account } from "../../assets/axios/Account";
+import Loader from "../../components/Loader";
 
 export const Analytics = () => {
   const [chartsData, setchartsData] = useState(null);
@@ -32,17 +33,7 @@ export const Analytics = () => {
   }, [accountstat]);
   return (
     <div className="w-full">
-      {loading && (
-        <div
-          className="fixed top-0 left-0 h-[100vh] w-full bg-white opacity-80 z-50 flex items-center justify-center"
-          style={{ backgroundColor: `rgb(29, 40, 93)` }}
-        >
-          <div className="ring-area">
-            Loading
-            <span></span>
-          </div>
-        </div>
-      )}
+      {loading && <Loader />}
 
       <Header active={2} page="Analytics" />
 
